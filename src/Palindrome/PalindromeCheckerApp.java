@@ -1,10 +1,15 @@
 package Palindrome;
 
+import java.util.Scanner;
+
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String word = "madam";
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter word: ");
+        String word = sc.nextLine();
 
         String reversed = "";
 
@@ -13,9 +18,11 @@ public class PalindromeCheckerApp {
         }
 
         if (word.equals(reversed)) {
-            System.out.println(word + " is a Palindrome");
+            System.out.println("Palindrome");
         } else {
-            System.out.println(word + " is NOT a Palindrome");
+            System.out.println("Not Palindrome");
         }
+
+        sc.close();
     }
 }
