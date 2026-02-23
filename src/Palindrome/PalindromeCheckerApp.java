@@ -28,7 +28,7 @@ public class PalindromeCheckerApp {
         if (isPalindrome)
             System.out.println("Palindrome");
         else
-            System.out.println("Not Palindrome");
+            System.out.println("Not palindromee");
 
         sc.close();
     }
