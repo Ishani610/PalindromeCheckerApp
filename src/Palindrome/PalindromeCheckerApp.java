@@ -1,34 +1,39 @@
 package Palindrome;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        Deque<Character> deque = new LinkedList<>();
 
-        System.out.print("Enter word: ");
-        String word = sc.nextLine();
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
 
-        for (char c : word.toCharArray()) {
-            deque.add(c);
-        }
+        // Normalize string (remove spaces and convert to lowercase)
+        String normalized = input.replaceAll("\\s+", "").toLowerCase();
+
+        int start = 0;
+        int end = normalized.length() - 1;
 
         boolean isPalindrome = true;
 
-        while (deque.size() > 1) {
-            if (!deque.removeFirst().equals(deque.removeLast())) {
+        while (start < end) {
+
+            if (normalized.charAt(start) != normalized.charAt(end)) {
                 isPalindrome = false;
                 break;
             }
+
+            start++;
+            end--;
         }
 
         if (isPalindrome)
             System.out.println("Palindrome");
         else
-            System.out.println("Not palindromee");
+            System.out.println("Not Palindrome");
 
         sc.close();
     }
