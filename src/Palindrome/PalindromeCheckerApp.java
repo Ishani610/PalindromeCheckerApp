@@ -2,6 +2,7 @@ package Palindrome;
 
 import java.util.Scanner;
 
+
 class Node {
     char data;
     Node next;
@@ -11,7 +12,6 @@ class Node {
         this.next = null;
     }
 }
-
 public class PalindromeCheckerApp {
 
     static Node createList(String str) {
@@ -66,12 +66,37 @@ public class PalindromeCheckerApp {
 
         Scanner sc = new Scanner(System.in);
 
+<<<<<<< HEAD
         System.out.print("Enter string: ");
         String input = sc.nextLine();
 
         Node head = createList(input);
 
         if (checkPalindrome(head))
+=======
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+
+        // Normalize string (remove spaces and convert to lowercase)
+        String normalized = input.replaceAll("\\s+", "").toLowerCase();
+
+        int start = 0;
+        int end = normalized.length() - 1;
+        boolean isPalindrome = true;
+
+        while (start < end) {
+
+            if (normalized.charAt(start) != normalized.charAt(end)) {
+                isPalindrome = false;
+                break;
+            }
+
+            start++;
+            end--;
+        }
+
+        if (isPalindrome)
+>>>>>>> 940031cdaca334131a40cebf4ca038a12276cfb3
             System.out.println("Palindrome");
         else
             System.out.println("Not Palindrome");
