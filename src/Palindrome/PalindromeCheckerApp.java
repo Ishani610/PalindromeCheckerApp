@@ -1,34 +1,31 @@
 package Palindrome;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class PalindromeCheckerApp {
+
+    static boolean isPalindrome(String str, int start, int end) {
+
+        if (start >= end)
+            return true;
+
+        if (str.charAt(start) != str.charAt(end))
+            return false;
+
+        return isPalindrome(str, start + 1, end - 1);
+    }
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        Deque<Character> deque = new LinkedList<>();
 
-        System.out.print("Enter word: ");
-        String word = sc.nextLine();
+        System.out.print("Enter string: ");
+        String input = sc.nextLine();
 
-        for (char c : word.toCharArray()) {
-            deque.add(c);
-        }
-
-        boolean isPalindrome = true;
-
-        while (deque.size() > 1) {
-            if (!deque.removeFirst().equals(deque.removeLast())) {
-                isPalindrome = false;
-                break;
-            }
-        }
-
-        if (isPalindrome)
+        if (isPalindrome(input, 0, input.length() - 1))
             System.out.println("Palindrome");
         else
-            System.out.println("Not palindromee");
+            System.out.println("Not Palindrome");
 
         sc.close();
     }
