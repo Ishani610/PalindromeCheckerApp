@@ -3,7 +3,34 @@ package Palindrome;
 import java.util.Scanner;
 
 public class PalindromeCheckerApp {
+ develop
+    public static boolean isPalindrome(String input) {
 
+        String normalized = input.replaceAll("\\s+", "").toLowerCase();
+
+        int start = 0;
+        int end = normalized.length() - 1;
+
+        while (start < end) {
+            if (normalized.charAt(start) != normalized.charAt(end)) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+
+        if (isPalindrome(input))
+          
     static boolean isPalindrome(String str, int start, int end) {
 
         if (start >= end)
@@ -22,7 +49,7 @@ public class PalindromeCheckerApp {
         System.out.print("Enter string: ");
         String input = sc.nextLine();
 
-        if (isPalindrome(input, 0, input.length() - 1))
+        if (isPalindrome(input, 0, input.length() - 1)) main
             System.out.println("Palindrome");
         else
             System.out.println("Not Palindrome");
